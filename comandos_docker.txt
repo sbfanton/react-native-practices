@@ -1,0 +1,24 @@
+***** Comandos para correr contenedor Docker con node 18 y poder acceder a la pagina web local del proyecto *****
+
+Aclaracion: los comandos con docker-compose se deben ejecutar ubicados en el directorio 
+donde se encuentre el archivo docker-compose.yml en la terminal local
+
+docker-compose up --build (construye la imagen y corre el contenedor)
+
+docker-compose up -d (corre el contenedor en modo deattached)
+
+docker exec -it <nombre o id del contenedor> bash (para ingresar a la terminal del contenedor)
+
+docker ps -a (para listar todos los contenedores)
+
+docker-compose stop (detienen el contenedor)
+
+docker-compose down (detiene el contenedor y lo elimina, pero no el build de la imagen)
+
+docker stop <nombre o id del contenedor>
+
+- Dentro de la terminal del contenedor, como ya tengo el proyecto con Expo generado, directamente hay que moverse dentro de la raíz del proyecto y ejecutar npm run web. Esto permite luego que desde localhost:8081 pueda acceder al .html de dicho proyecto
+
+- Dentro de la terminal del contenedor, si ejecuto curl http://host.docker.internal:<puerto>/<path> puedo realizar peticiones http por ejemplo a una aplicación de springboot
+
+- Dentro de la terminal del contenedor, si corro dentro del proyecto react-native npx expo start --tunnel es el único que me permite conectar un dispositivo Android a la pagina

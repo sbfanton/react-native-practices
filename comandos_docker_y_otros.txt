@@ -22,3 +22,8 @@ docker stop <nombre o id del contenedor>
 - Dentro de la terminal del contenedor, si ejecuto curl http://host.docker.internal:<puerto>/<path> puedo realizar peticiones http por ejemplo a una aplicación de springboot
 
 - Dentro de la terminal del contenedor, si corro dentro del proyecto react-native npx expo start --tunnel es el único que me permite conectar un dispositivo Android a la pagina
+
+- Dentro del contenedor, para crear un proyecto de react native de cero, limpio y solo con lo basico:
+npx create-expo-app nombre-del-proyecto --template blank
+A eso añadirle las dependencias con: 
+npx expo install react-dom react-native-web @expo/metro-runtime

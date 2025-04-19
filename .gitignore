@@ -256,5 +256,6 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/reactnative
 
+.env
 #*environment.json
 #*environment.js

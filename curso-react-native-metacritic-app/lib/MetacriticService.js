@@ -1,6 +1,6 @@
-import api from "../MetacriticEnv_environment"
+import { RAWG_API_KEY } from '@env';
 
-const apiKey = api.apiKey;
+const apiKey = RAWG_API_KEY;
 //console.log('API Key:', apiKey);
 
 export async function getLatestGames() {

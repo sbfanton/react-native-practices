@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+/*import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Main } from './components/Main';
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#3a3a3b',
     padding: 12
   }
-});
+});*/

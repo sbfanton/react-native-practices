@@ -1,15 +1,21 @@
 import { View, Image, Text, StyleSheet, Animated } from "react-native"
 import { useEffect, useRef } from "react"
+import { Score } from "./Score";
 
 export function GameCard({ game }) {
     return (
-    <View key={game.slug} style={styles.card}>
+    <View 
+    className="flex-row bg-gray-500/10 p-4 rounded-xl gap-4 mb-10"
+    key={game.slug}>
         <Image 
             source={{ uri: game.image }}
             style={styles.image}
         />
-        <Text style={styles.title}>{game.title}</Text>
-        <Text style={styles.score}>{game.score}</Text>
+        <View style={styles.textContent}>
+            <Text style={styles.title}>{game.title}</Text>
+            <Score score={game.score} maxScore={5}/>
+            <Text style={styles.released}>Lanzamiento: {game.release}</Text>
+        </View>
     </View>)
 }
 
@@ -19,8 +25,8 @@ export function AnimatedGameCard({ game, index }) {
     useEffect(() => {
         Animated.timing(opacity, {
             toValue: 1,
-            duration: 500,
-            delay: index * 500,
+            duration: 200,
+            delay: index * 100,
             useNativeDriver: true
         }).start()
     }, [opacity, index]);
@@ -42,8 +48,11 @@ const styles = StyleSheet.create({
         height: 157,
         borderRadius: 10
       },
+      textContent: {
+        flexShrink:1
+      },
       title: {
-        fontSize: 20,
+        fontSize: 19,
         fontWeight: 'bold',
         marginBottom: 10,
         marginTop: 5,
@@ -53,6 +62,12 @@ const styles = StyleSheet.create({
         fontSize: 19,
         fontWeight: 'bold',
         marginBottom: 10,
-        color: '#a2a2a8'
+        color: '#c7c7c7'
+      },
+      released: {
+        fontSize: 16,
+        fontStyle: 'italic',
+        color: '#bdbdbd',
+        marginBottom: 5
       }
 })

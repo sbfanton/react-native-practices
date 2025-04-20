@@ -1,11 +1,16 @@
-import { ScrollView, ActivityIndicator, FlatList } from 'react-native';
+import { ActivityIndicator, FlatList, Pressable } from 'react-native';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
+import { Link } from 'expo-router';
 //import Constants from 'expo-constants';
 import { getLatestGames, getGameDetails } from '../lib/MetacriticService';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AnimatedGameCard, GameCard } from './GameCard';
 import { Logo } from './Logo';
+import { CircleInfoIcon } from './Icons';
+import { styled } from "nativewind";
+
+const StyledPressable = styled(Pressable);
 
 export function Main() {
 
@@ -29,6 +34,13 @@ export function Main() {
         <View style={{ marginBottom: 20 }}>
             <Logo />
         </View>
+
+        <Link asChild href="/about">
+          <StyledPressable className={`active:opacity-20`}>
+            <CircleInfoIcon />
+          </StyledPressable>
+        </Link>
+
         {games.lenght == 0 ? 
         ( <ActivityIndicator color={'#fff'} size={'large'} /> ) :
         (<FlatList

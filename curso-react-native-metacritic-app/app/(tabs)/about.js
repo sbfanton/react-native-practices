@@ -1,14 +1,23 @@
-import { Link } from "expo-router";
+import { Link, Stack } from "expo-router";
 import { Pressable, ScrollView, Text, View } from "react-native";
-import { HomeIcon } from "../components/Icons";
+import { HomeIcon } from "../../components/Icons";
 import { styled } from "nativewind";
-import { Screen } from "../components/Screen";
+import { Screen } from "../../components/Screen";
 
 const StyledPressable = styled(Pressable);
 
 export default function About() {
     return (
         <Screen>
+            <Stack.Screen
+                options={{
+                    headerStyle: { backgroundColor: '#FFBD3F' },
+                    headerTintColor: 'black',
+                    headerLeft: () => {},
+                    headerRight: () => {},
+                    headerTitle: "Acerca de",
+                }}
+            />
             <ScrollView className="bg-black">
                 <View className="flex-row justify-between items-center mb-4 mx-2">
                     <Text className="text-white font-bold mb-8 text-2xl">Sobre el proyecto</Text>

@@ -18,7 +18,7 @@ export function GameCard({ game }) {
             />
             <View style={styles.textContent}>
                 <Text style={styles.title}>{game.title}</Text>
-                <Score score={game.score} maxScore={5}/>
+                <Score score={game.score} maxScore={5} size="small"/>
                 <Text style={styles.released}>Lanzamiento: {game.release}</Text>
             </View>
         </View>

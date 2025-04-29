@@ -3,6 +3,7 @@ import { styled } from "nativewind";
 import { Link, Stack } from "expo-router";
 import { useLocalSearchParams } from "expo-router";
 import { Screen } from "../components/Screen";
+import { Score } from "../components/Score";
 import { useEffect, useState } from "react";
 import { getGameDetails } from "../lib/MetacriticService";
 
@@ -27,7 +28,7 @@ export default function Detail() {
         <Screen>
             <Stack.Screen
                 options={{
-                    headerStyle: { backgroundColor: 'yellow' },
+                    headerStyle: { backgroundColor: '#FFBD3F' },
                     headerTintColor: 'black',
                     headerLeft: () => {},
                     headerRight: () => {},
@@ -49,14 +50,18 @@ export default function Detail() {
 function GameDetails({ game }) {
     return (
         <ScrollView>
-            <View className="justify-center items-center text-center">
+            <View className="justify-center items-center">
                 <Image 
                     className="mb-4 rounded"
                     source={{ uri: game.img }}
                     style={{ width: 380, height: 214 }}
                 />
-                <Text className="text-white font-bold mb-8 text-2xl">
+                <Score score={game.score} maxScore={5} size="big"/>
+                <Text className="text-white text-center font-bold mb-8 text-3xl pt-5">
                     {game.title}
+                </Text>
+                <Text className="text-white/70 text-justify pl-2 pr-2 font-bold mt-2 mb-8 text-base">
+                    {game.description}
                 </Text>
             </View>
         </ScrollView>

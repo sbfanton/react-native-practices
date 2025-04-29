@@ -25,7 +25,7 @@ export default function Layout() {
                     headerTintColor: "white",
                     headerTitle: "",
                     headerLeft: () => <Logo />,
-                    headerRight: () => <HeaderRight />
+                    headerRight: () => {}
                 }}
             />
         </View>
@@ -33,24 +33,12 @@ export default function Layout() {
 }
 
 function HeaderRight() {
-    const pathname = usePathname();
-  
-    if (pathname === '/') {
-      return (
+    return (
         <Link asChild href="/about">
           <StyledPressable className="active:opacity-20">
             <CircleInfoIcon />
           </StyledPressable>
         </Link>
       );
-    }
-  
-    return (
-      <Link asChild href="/">
-        <StyledPressable className="active:opacity-20">
-          <HomeIcon />
-        </StyledPressable>
-      </Link>
-    );
   }
   

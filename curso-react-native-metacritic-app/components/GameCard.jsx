@@ -11,8 +11,7 @@ export function GameCard({ game }) {
     <Link asChild href={`/${game.slug}`}>
       <StyledPressable className="active:opacity-70 border border-black active:border-white/50 mb-3 bg-gray-600/50 p-4 rounded-xl ">
         <View 
-        className="flex-row gap-4"
-        key={game.slug}>
+        className="flex-row gap-4">
             <Image 
                 source={{ uri: game.image }}
                 style={styles.image}

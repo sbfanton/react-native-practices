@@ -1,8 +1,9 @@
 import { ActivityIndicator, FlatList } from 'react-native';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getLatestGames } from '../lib/MetacriticService';
-import { AnimatedGameCard } from './GameCard';
+import { AnimatedGameCard, GameCard } from './GameCard';
 import { Screen } from './Screen';
+import { useFocusEffect } from 'expo-router';
 
 export function Main() {
   const [games, setGames] = useState([]);
@@ -18,15 +19,16 @@ export function Main() {
 
   return (
     <Screen>
-        {games.lenght == 0 ? 
+        {games.length == 0 ? 
         ( <ActivityIndicator color={'#fff'} size={'large'} /> ) :
         (<FlatList
             data={games}
-            keyStractor={game => game.slug}
+            keyExtractor={(item) => item.slug}
             renderItem={
                 ({ item, index }) => 
                 <AnimatedGameCard game={item} index={index}/>
             }
+            removeClippedSubviews={false}
         />)}
     </Screen>
   );
